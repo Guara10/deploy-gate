@@ -1,0 +1,26 @@
+name: testes
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  testes:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: windows-latest
+            shell: powershell   # Windows PowerShell 5.1, o que roda nas maquinas da maioria das empresas
+          - os: windows-latest
+            shell: pwsh         # PowerShell 7
+          - os: ubuntu-latest
+            shell: pwsh
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        shell: ${{ matrix.shell }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Rodar testes
+        run: ./tests/Run-Tests.ps1

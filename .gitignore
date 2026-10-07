@@ -1,0 +1,12 @@
+# configuracao local com caminhos reais
+src/config.psd1
+
+# ambiente gerado pela demo e saidas
+demo/ambiente/
+saida/
+relatorio_*.html
+decisoes*.csv
+decisoes_planilha_*.xlsx
+diagnostico_*.csv
+publicacoes.csv
+em_observacao.csv
